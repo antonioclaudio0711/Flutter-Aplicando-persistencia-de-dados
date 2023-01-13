@@ -118,7 +118,6 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
             ),
           );
         },
-        backgroundColor: const Color.fromARGB(255, 47, 183, 232),
         child: const Icon(Icons.add),
       ),
     );

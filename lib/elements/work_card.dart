@@ -41,7 +41,7 @@ class _WorkCardState extends State<WorkCard> {
               height: 140,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
-                color: Colors.blue,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           if (widget.count == 1)
@@ -74,7 +74,7 @@ class _WorkCardState extends State<WorkCard> {
                 height: 100,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4),
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.surface,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -107,10 +107,7 @@ class _WorkCardState extends State<WorkCard> {
                           width: 200,
                           child: Text(
                             widget.text,
-                            style: const TextStyle(
-                              fontSize: 24,
-                              overflow: TextOverflow.ellipsis,
-                            ),
+                            style: Theme.of(context).textTheme.displaySmall,
                           ),
                         ),
                         Difficulty(difficultyLevel: widget.difficulty)
@@ -175,10 +172,13 @@ class _WorkCardState extends State<WorkCard> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.end,
-                          children: const [
-                            Icon(Icons.arrow_drop_up),
+                          children: [
+                            const Icon(Icons.arrow_drop_up),
                             Text(
                               'UP',
+                              style: Theme.of(context)
+                                  .primaryTextTheme
+                                  .labelMedium,
                             ),
                           ],
                         ),
@@ -195,7 +195,7 @@ class _WorkCardState extends State<WorkCard> {
                     SizedBox(
                       width: 200,
                       child: LinearProgressIndicator(
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.onSurface,
                         value: (widget.difficulty > 0)
                             ? widget.value =
                                 (widget.nivel / widget.difficulty) / 10
@@ -204,10 +204,7 @@ class _WorkCardState extends State<WorkCard> {
                     ),
                     Text(
                       'Nível ${widget.nivel}',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
+                      style: Theme.of(context).primaryTextTheme.labelLarge,
                     ),
                   ],
                 ),
